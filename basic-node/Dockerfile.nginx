@@ -12,5 +12,7 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 #Grant permissions to the random OpenShift user for Nginx system folders
 RUN chmod -R a+rwx /var/cache/nginx /var/run /var/log/nginx /etc/nginx
 
+USER nginx
+
 EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]
